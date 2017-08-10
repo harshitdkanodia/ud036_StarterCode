@@ -5,7 +5,7 @@ delhi_belly = movie.Movie("Delhi Belly"
 							,'https://i2.wp.com/bollywoodcopy.com/cron/posters/14.jpg'
 							,"https://www.youtube.com/watch?v=iSVhPXvFDw8")
 avengers = movie.Movie("Avengers : Age of ultron"
-							,"The avengers fight an AI got out of hand"
+							,"The avengers fight a powerful AI who want's to finish humanity"
 							,'https://static.comicvine.com/uploads/scale_small/11/113509/4413258-ultron.jpg'
 							,"https://www.youtube.com/watch?v=rD8lWtcgeyg")
 movies = [delhi_belly,avengers]
