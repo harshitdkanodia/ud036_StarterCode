@@ -1,39 +1,19 @@
 import movie
 import fresh_tomatoes
+import tmdb_repo
+import sys
 
-# Movie 1
-delhi_belly = movie.Movie("Delhi Belly", "A man faces life",
-                          'http://contact25.com/uploads/7_16764.jpg',
-                          "https://www.youtube.com/watch?v=iSVhPXvFDw8")
-# Movie 2
-avengers = movie.Movie("Avengers : Age of ultron",
-                       "The avengers fight a powerful AI who want's to finish humanity",
-                       'https://static.comicvine.com/uploads/scale_small/11/113509/4413258-ultron.jpg',
-                       "https://www.youtube.com/watch?v=rD8lWtcgeyg")
-
-# Movie 3
-war_for_the_planet = movie.Movie("War for the Planet of the Apes",
-                                 "Caesar (Andy Serkis) and his apes are forced into a deadly conflict with an army of humans led by a ruthless colonel (Woody Harrelson). " +
-                                 "After the apes suffer unimaginable losses, Caesar wrestles with his darker instincts and begins his own mythic quest to avenge his kind." +
-                                 "As the journey finally brings them face to face, Caesar and the colonel are pitted against each other in an epic battle that will determine " +
-                                 "the fate of both of their species and the future of the planet.",
-                                 'http://cdn.collider.com/wp-content/uploads/2016/12/war-for-the-planet-of-the-apes-poster.jpg',
-                                 "https://www.youtube.com/watch?v=qxjPjPzQ1iU")
-# Movie 4
-the_man_who_knew_infinity = movie.Movie("The man who knew infinity",
-                                        "The story of the life and academic career of the pioneer Indian mathematician, Srinivasa Ramanujan, and his friendship with his mentor, Professor G.H. Hardy.",
-                                        'http://www.newdvdreleasedates.com/images/posters/large/the-man-who-knew-infinity-2015-04.jpg',
-                                        "https://www.youtube.com/watch?v=oXGm9Vlfx4w")
-# Movie 5
-wonder_woman = movie.Movie("Wonder Woman",
-                           "Before she was Wonder Woman (Gal Gadot), she was Diana, princess of the Amazons, trained to be an unconquerable warrior. " +
-                           "Raised on a sheltered island paradise, Diana meets an American pilot (Chris Pine) who tells her about the massive conflict that's raging in the outside world. " +
-                           "Convinced that she can stop the threat, Diana leaves her home for the first time. Fighting alongside men in a war to end all wars, " +
-                           "she finally discovers her full powers and true destiny.",
-                           'http://vignette3.wikia.nocookie.net/dccu/images/8/8e/Wonder_Woman_first_look_promo.jpg/revision/latest?cb=20160708135809',
-                           "https://www.youtube.com/watch?v=oXGm9Vlfx4w")
-# making a list of the movies we just initialized
-movies = [delhi_belly, avengers, war_for_the_planet,
-          the_man_who_knew_infinity, wonder_woman]
-# open webpage to display all these movies
+if len(sys.argv) > 1:
+  # getting strategy if argument is supplied
+  strategy = sys.argv[1]
+else:
+  # defaulting to offline if no argument supplied
+  strategy = "offline"
+print("getting movies from " + strategy + " repo")
+# open webpage to display movies from TMDB
+movies = tmdb_repo.get_movies(strategy)
+# show movies
 fresh_tomatoes.open_movies_page(movies)
+
+
+
